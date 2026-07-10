@@ -12,13 +12,6 @@ const connectLinks = [
     icon: "fas fa-handshake-angle",
     color: "#00A8B2",
     url: "https://forms.gle/4AwffWCW73yZyr1PA"
-},
-{
-    title: "Review Form",
-    subtitle: "Share your feedback",
-    icon: "fas fa-star",
-    color: "#A6229B",
-    url: "https://forms.gle/JfypUQjQ9FNQYNVU7"
 }
 ];
 
