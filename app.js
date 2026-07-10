@@ -1,26 +1,5 @@
 const connectLinks = [
 {
-    title: "Instagram",
-    subtitle: "Follow our latest events",
-    icon: "fab fa-instagram",
-    color: "#E1306C",
-    url: "https://instagram.com/meetmosaic.co"
-},
-{
-    title: "Facebook",
-    subtitle: "Join our community",
-    icon: "fab fa-facebook-f",
-    color: "#1877F2",
-    url: "https://www.facebook.com/share/19Bwx6H8pM/"
-},
-{
-    title: "WhatsApp Chat",
-    subtitle: "Chat instantly",
-    icon: "fab fa-whatsapp",
-    color: "#25D366",
-    url: "https://wa.me/+919426961627"
-},
-{
     title: "WhatsApp Community",
     subtitle: "Become a member",
     icon: "fas fa-users",
@@ -28,18 +7,11 @@ const connectLinks = [
     url: "https://chat.whatsapp.com/LP2IyduZQjyHrKPNE7tuOG?s=cl&p=a&ilr=4&amv=2"
 },
 {
-    title: "Call Us",
-    subtitle: "Available 9AM - 9PM",
-    icon: "fas fa-phone",
-    color: "#ff914d",
-    url: "tel:+919426961627"
-},
-{
-    title: "Email",
-    subtitle: "We'll reply quickly",
-    icon: "fas fa-envelope",
+    title: "Volunteer Form",
+    subtitle: "Become a Volunteer",
+    icon: "fas fa-handshake-angle",
     color: "#00A8B2",
-    url: "mailto:help.meetmosaic@gmail.com"
+    url: "https://forms.gle/4AwffWCW73yZyr1PA"
 },
 {
     title: "Review Form",
@@ -47,13 +19,6 @@ const connectLinks = [
     icon: "fas fa-star",
     color: "#A6229B",
     url: "https://forms.gle/JfypUQjQ9FNQYNVU7"
-},
-{
-    title: "Volunteer Form",
-    subtitle: "Become a Volunteer",
-    icon: "fas fa-handshake-angle",
-    color: "#00A8B2",
-    url: "https://forms.gle/4AwffWCW73yZyr1PA"
 }
 ];
 
