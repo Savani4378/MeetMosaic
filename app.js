@@ -5,13 +5,6 @@ const connectLinks = [
     icon: "fas fa-users",
     color: "#25D366",
     url: "https://chat.whatsapp.com/LP2IyduZQjyHrKPNE7tuOG?s=cl&p=a&ilr=4&amv=2"
-},
-{
-    title: "Volunteer Form",
-    subtitle: "Become a Volunteer",
-    icon: "fas fa-handshake-angle",
-    color: "#00A8B2",
-    url: "https://forms.gle/4AwffWCW73yZyr1PA"
 }
 ];
 
