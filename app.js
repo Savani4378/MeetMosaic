@@ -156,13 +156,29 @@ function handleRouting() {
         } else {
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
-    } else if (hash === "#events") {
+    } else if (hash === "#events" || hash.startsWith("#event-")) {
         // Show events page
         if (pages.home) pages.home.style.display = "none";
         if (pages.contactUs) pages.contactUs.style.display = "none";
         if (pages.events) pages.events.style.display = "block";
         setActiveNavLink("events");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        
+        if (hash.startsWith("#event-")) {
+            const targetEl = document.getElementById(hash.substring(1));
+            if (targetEl) {
+                // Expand the card
+                targetEl.classList.add("expanded");
+                const toggleBtn = targetEl.querySelector(".toggle-details-btn");
+                if (toggleBtn) {
+                    toggleBtn.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Hide Details';
+                }
+                setTimeout(() => {
+                    targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
+                }, 150);
+            }
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
     } else {
         // Show home page
         if (pages.home) pages.home.style.display = "block";
@@ -275,3 +291,100 @@ document.addEventListener("click", (e) => {
         }
     }
 });
+
+// =====================================================
+// TOAST NOTIFICATION SYSTEM
+// =====================================================
+let toastContainer = null;
+
+function showToast(message) {
+    if (!toastContainer) {
+        toastContainer = document.createElement("div");
+        toastContainer.className = "toast-container";
+        document.body.appendChild(toastContainer);
+    }
+
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.innerHTML = `
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span>${message}</span>
+    `;
+
+    toastContainer.appendChild(toast);
+
+    // Trigger reflow to apply transition
+    toast.offsetHeight;
+
+    toast.classList.add("show");
+
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove("show");
+        toast.addEventListener("transitionend", () => {
+            toast.remove();
+        });
+    }, 3000);
+}
+
+// =====================================================
+// EVENT SHARE LOGIC
+// =====================================================
+document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".share-btn");
+    if (btn) {
+        e.stopPropagation();
+        const eventId = btn.getAttribute("data-event-id");
+        const eventName = btn.getAttribute("data-event-name");
+        
+        // Construct event share link with hash anchor
+        const shareUrl = `${window.location.origin}${window.location.pathname}#${eventId}`;
+        
+        if (navigator.share) {
+            navigator.share({
+                title: `Meet Mosaic - ${eventName}`,
+                text: `Check out this amazing event by Meet Mosaic: ${eventName}!`,
+                url: shareUrl
+            }).catch(err => {
+                console.log("Error sharing:", err);
+                copyToClipboard(shareUrl);
+            });
+        } else {
+            copyToClipboard(shareUrl);
+        }
+    }
+});
+
+function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast("Event link copied to clipboard!");
+        }).catch(err => {
+            fallbackCopyToClipboard(text);
+        });
+    } else {
+        fallbackCopyToClipboard(text);
+    }
+}
+
+function fallbackCopyToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showToast("Event link copied to clipboard!");
+        } else {
+            showToast("Failed to copy link.");
+        }
+    } catch (err) {
+        showToast("Failed to copy link.");
+    }
+    document.body.removeChild(textArea);
+}
