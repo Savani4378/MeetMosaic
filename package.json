@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node server.js",
-    "build": "echo 'No build step required'",
-    "start": "node server.js",
+    "dev": "sirv . --port 3000 --dev",
+    "build": "mkdir -p dist && cp -r index.html app.js styles.css Images dist/",
     "lint": "echo 'No lint step required'"
   },
-  "dependencies": {
-    "express": "^4.19.2"
+  "devDependencies": {
+    "sirv-cli": "^3.0.1"
   }
 }
