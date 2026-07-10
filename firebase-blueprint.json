@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "Review": {
+      "title": "Review",
+      "description": "User experience feedback from event attendees",
+      "type": "object",
+      "properties": {
+        "authorName": {
+          "type": "string",
+          "description": "The full name of the reviewer",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "authorRole": {
+          "type": "string",
+          "description": "The role or designation of the reviewer",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the reviewer"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "The phone/mobile number of the reviewer"
+        },
+        "bodyText": {
+          "type": "string",
+          "description": "The text content of the review",
+          "minLength": 10,
+          "maxLength": 1000
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "The timestamp of when the review was submitted"
+        }
+      },
+      "required": ["authorName", "authorRole", "email", "mobile", "bodyText", "createdAt"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "General customer inquiries and collaboration requests",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the sender",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the sender"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The phone number of the sender"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "The type of event or inquiry option selected"
+        },
+        "message": {
+          "type": "string",
+          "description": "The details of the message",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "The timestamp of the inquiry"
+        }
+      },
+      "required": ["name", "email", "phone", "eventType", "message", "createdAt"]
+    },
+    "EventRegistration": {
+      "title": "EventRegistration",
+      "description": "User registration for attending curated experiences",
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "type": "string",
+          "description": "Unique booking reference ID"
+        },
+        "eventId": {
+          "type": "string",
+          "description": "The identifier of the selected event"
+        },
+        "eventName": {
+          "type": "string",
+          "description": "The name of the event"
+        },
+        "name": {
+          "type": "string",
+          "description": "The attendee's full name",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "The attendee's email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The attendee's contact phone number"
+        },
+        "status": {
+          "type": "string",
+          "description": "The confirmation status of the booking",
+          "enum": ["confirmed", "pending", "cancelled"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "The timestamp of when the registration was created"
+        }
+      },
+      "required": ["bookingId", "eventId", "eventName", "name", "email", "phone", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Public community reviews of Meet Mosaic experiences"
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "Client inquiry and community requests"
+    },
+    "/event_registrations/{registrationId}": {
+      "schema": "EventRegistration",
+      "description": "User reservations for community events"
+    }
+  }
+}

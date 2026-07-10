@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Mosaic | Many Stories. One Mosaic.</title>
+    <link rel="icon" type="image/png" href="./Images/M.png">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="brand-nav">
+        <div class="logo-wrapper" onclick="window.location.hash = '#home';" style="cursor: pointer;">
+            <img src="./Images/M.png" alt="Meet Mosaic Logo" class="logo-img">
+            <span class="logo-text">Meet Mosaic</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#home" class="nav-item active" id="nav-home">Home</a>
+            <a href="#events" class="nav-item" id="nav-events">Events</a>
+            <a href="#about" class="nav-item" id="nav-about">About</a>
+            <a href="#contact-us" class="nav-item" id="nav-contact-us">Contact Us</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation" id="mobile-nav-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div id="page-home" class="page-view">
+        <section class="hero-section">
+            <div class="hero-badge">Many Stories. One Mosaic.</div>
+            <h1 class="hero-title">Meet Mosaic</h1>
+            <p class="hero-desc">We curate unforgettable social experiences through art events, acoustic jamming sessions, creative workshops, and premium community gatherings. Where people meet through stories, creativity, and meaningful connections.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Join Our Next Event</a>
+                <a href="#contact" class="btn btn-secondary">Partner With Us</a>
+                <a href="#events" class="btn btn-secondary">Explore Events</a>
+            </div>
+        </section>
+
+        <section class="container" id="about">
+            <h2 class="section-title">About Meet Mosaic</h2>
+            <p class="section-subtitle">Our Core Philosophy</p>
+            <div class="about-card">
+                <p class="about-text">Meet Mosaic is more than an event brand—it is a community built around creativity, conversations, and unforgettable experiences.</p>
+                <p class="about-text">We bring people together through curated social events that blend art, music, culture, and meaningful human connection.</p>
+                <p class="about-text" style="color: var(--primary); font-weight: 600; margin-bottom: 0;">Every gathering is designed to create memories, inspire conversations, and build a space where stories truly matter. Because we believe: Many Stories. One Mosaic.</p>
+            </div>
+        </section>
+
+
+        <section class="container">
+            <h2 class="section-title">Visual Storytelling</h2>
+            <p class="section-subtitle">Instagram Feed Snippet</p>
+            <div class="instagram-grid">
+                <div class="instagram-post-placeholder" onclick="window.open('https://instagram.com/meetmosaic.co', '_blank')">
+                    <span style="font-weight:600; margin-bottom:4px;">🎨 Art & Wine Highlights</span>
+                    <span style="font-size:11px; color:var(--primary)">View Post →</span>
+                </div>
+                <div class="instagram-post-placeholder" onclick="window.open('https://www.instagram.com/reel/DaARIKgBTHn/?igsh=bno2emtqemd2azN6', '_blank')">
+                    <span style="font-weight:600; margin-bottom:4px;">🎸 Unplugged Live Jam</span>
+                    <span style="font-size:11px; color:var(--primary)">View Post →</span>
+                </div>
+                <div class="instagram-post-placeholder" onclick="window.open('https://instagram.com/meetmosaic.co', '_blank')">
+                    <span style="font-weight:600; margin-bottom:4px;">☕ Café Social Mixer</span>
+                    <span style="font-size:11px; color:var(--primary)">View Post →</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-events" class="page-view" style="display: none;">
+        <section class="events-hero">
+            <div class="hero-badge">Curated Gatherings</div>
+            <h1 class="hero-title" style="font-size: 42px; margin-bottom: 16px;">Upcoming Events</h1>
+            <p class="hero-desc" style="font-size: 16px; max-width: 600px; margin: 0 auto;">Step into warm, intimate experiences designed to foster authentic connections through art, music, and conversation.</p>
+        </section>
+
+        <section class="container" id="events-list" style="padding-top: 40px; padding-bottom: 80px;">
+            <div class="events-grid">
+                <!-- Event 1 -->
+                <div class="event-card" id="event-jamming-night">
+                    <div class="event-banner-wrapper">
+                        <img src="./Images/jamming_night.png" alt="Jamming Night Poster" class="event-banner-img">
+                        <div class="event-badge" style="background: #10b981; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 6px;"><span style="width: 8px; height: 8px; background: #fff; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite;"></span>Live</div>
+                    </div>
+                    <div class="event-details-content">
+                        <div class="event-card-header-clickable" style="cursor: pointer;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+                                <div style="flex-grow: 1;">
+                                    <div class="event-meta-top">
+                                        <span class="event-date-tag"><i class="fa-regular fa-calendar"></i> 11th June, 2026</span>
+                                        <span class="event-time-tag"><i class="fa-regular fa-clock"></i> 9 PM to 11 PM</span>
+                                    </div>
+                                    <h2 class="event-title" style="margin-bottom: 12px;">Jamming Night</h2>
+                                </div>
+                                <div class="event-expand-chevron-box" style="padding: 4px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-solid fa-chevron-down event-expand-icon"></i>
+                                </div>
+                            </div>
+                            <div class="event-venue-info">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <strong>Apnaa Addaa Cafe</strong><br>
+                                    <span style="font-size: 13px; color: var(--text-muted);">Titanium City Center, 100 Feet Anand Nagar Rd, Satellite, Ahmedabad, Gujarat 380015</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-description-box">
+                            <p>Step into a space where music flows freely and creativity takes the lead.</p>
+                            <p>Join us for an intimate Jam Night curated by MeetMosaic, where musicians, singers, and music lovers come together to share, create, and vibe. Whether you play an instrument, love to sing, or simply enjoy live music, this evening is all about connection through sound.</p>
+                            <p>Expect spontaneous collaborations, acoustic sessions, and a cozy atmosphere that brings people closer through rhythm and melody. No stage pressure, just pure expression and good energy.</p>
+                            <p>Perfect for anyone looking to unwind, meet like-minded people, and be part of a soulful musical experience.</p>
+                            
+                            <h4 style="margin-top: 14px; margin-bottom: 6px; color: var(--accent);">What you can expect?</h4>
+                            <ul style="padding-left: 18px; margin-bottom: 0;">
+                                <li>This is a collaborative jamming session, feel free to bring your own instrument.</li>
+                                <li>Basic setup may be available at the venue, but availability is limited.</li>
+                                <li>Please respect all performers and maintain a positive, inclusive environment.</li>
+                                <li>Entry as per ticket confirmation only.</li>
+                                <li>Follow venue guidelines at all times.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="event-footer-action">
+                            <div class="event-price-box">
+                                <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase;">Price</span>
+                                <span class="event-price-amount">349/- Rs.</span>
+                            </div>
+                            <div class="event-buttons">
+                                <button class="btn btn-secondary btn-sm toggle-details-btn" style="gap: 6px;"><i class="fa-solid fa-chevron-down"></i> Show Details</button>
+                                <a href="https://maps.app.goo.gl/rMhU47c53Sgtqbyi7?g_st=aw" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-solid fa-map"></i> View Location</a>
+                                <button class="btn btn-primary btn-sm rsvp-btn" data-event-id="jamming_night" data-event-name="Jamming Night" data-event-price="349/- Rs." data-event-date="11th June, 2026 (9 PM to 11 PM)"><i class="fa-solid fa-ticket"></i> Book Tickets</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card" id="event-japanese-kintsugi">
+                    <div class="event-banner-wrapper">
+                        <img src="./Images/japanese_kintsugi.png" alt="Japanese Kintsugi Poster" class="event-banner-img" referrerpolicy="no-referrer">
+                        <div class="event-badge">Upcoming</div>
+                    </div>
+                    <div class="event-details-content">
+                        <div class="event-card-header-clickable" style="cursor: pointer;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+                                <div style="flex-grow: 1;">
+                                    <div class="event-meta-top">
+                                        <span class="event-date-tag"><i class="fa-regular fa-calendar"></i> 18th July, 2026</span>
+                                        <span class="event-time-tag"><i class="fa-regular fa-clock"></i> 3 PM to 5 PM | 5 PM to 7 PM</span>
+                                    </div>
+                                    <h2 class="event-title" style="margin-bottom: 12px;">Japanese Kintsugi</h2>
+                                </div>
+                                <div class="event-expand-chevron-box" style="padding: 4px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-solid fa-chevron-down event-expand-icon"></i>
+                                </div>
+                            </div>
+                            <div class="event-venue-info">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <strong>Apnaa Addaa Cafe</strong><br>
+                                    <span style="font-size: 13px; color: var(--text-muted);">Titanium City Center, 100 Feet Anand Nagar Rd, Satellite, Ahmedabad, Gujarat 380015</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-description-box">
+                            <p style="font-size: 14.5px; color: var(--highlight); font-weight: 500; margin-bottom: 14px;">Japanese Kintsugi Experience: Craft with Patience, Learn with Philosophy</p>
+                            <p>Discover the timeless Japanese art of Kintsugi, a practice that transforms broken ceramics into beautiful pieces by celebrating their cracks rather than hiding them.</p>
+                            <p>More than an art activity, Kintsugi is rooted in the philosophy of embracing imperfections, resilience, and growth. Through this guided creative experience, you'll explore the meaning behind this centuries-old tradition while creating a unique piece of your own.</p>
+                            <p>Whether you're looking to unwind, learn something new, or spend an afternoon immersed in creativity, this experience offers a thoughtful blend of art, mindfulness, and culture.</p>
+                            
+                            <h4 style="margin-top: 14px; margin-bottom: 6px; color: var(--primary);">What To Expect</h4>
+                            <ul style="padding-left: 18px; margin-bottom: 12px;">
+                                <li>Learn the story and philosophy behind Kintsugi and the Japanese concept of finding beauty in imperfection</li>
+                                <li>Create your own Kintsugi-inspired ceramic piece using provided materials</li>
+                                <li>Enjoy a calming, hands-on creative experience in a welcoming environment</li>
+                                <li>Connect with fellow art, culture, and craft enthusiasts</li>
+                                <li>Take home a meaningful artwork crafted by you</li>
+                            </ul>
+
+                            <h4 style="margin-top: 14px; margin-bottom: 6px; color: var(--secondary);">Who Is It For?</h4>
+                            <ul style="padding-left: 18px; margin-bottom: 12px;">
+                                <li>Art and craft enthusiasts</li>
+                                <li>Beginners with no prior experience</li>
+                                <li>People seeking mindful and creative experiences</li>
+                                <li>Anyone curious about Japanese culture and philosophy</li>
+                            </ul>
+
+                            <h4 style="margin-top: 14px; margin-bottom: 6px; color: var(--accent);">Important Note</h4>
+                            <ul style="padding-left: 18px; margin-bottom: 0;">
+                                <li>All materials will be provided. No prior artistic experience is required.</li>
+                                <li>The images used in promotional materials are for representation purposes only. Actual artwork and materials may vary.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="event-footer-action">
+                            <div class="event-price-box">
+                                <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase;">Price</span>
+                                <span class="event-price-amount">1099/- Rs.</span>
+                            </div>
+                            <div class="event-buttons">
+                                <button class="btn btn-secondary btn-sm toggle-details-btn" style="gap: 6px;"><i class="fa-solid fa-chevron-down"></i> Show Details</button>
+                                <a href="https://maps.app.goo.gl/rMhU47c53Sgtqbyi7?g_st=aw" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-solid fa-map"></i> View Location</a>
+                                <button class="btn btn-primary btn-sm rsvp-btn" data-event-id="japanese_kintsugi" data-event-name="Japanese Kintsugi" data-event-price="1099/- Rs." data-event-date="18th July, 2026 (3 PM to 5 PM | 5 PM to 7 PM)"><i class="fa-solid fa-ticket"></i> Book Tickets</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="page-contact-us" class="page-view" style="display: none;">
+        <section class="contact-hero">
+            <div class="hero-badge">Get in Touch</div>
+            <h1 class="hero-title" style="font-size: 42px; margin-bottom: 16px;">Contact Us</h1>
+            <p class="hero-desc" style="font-size: 16px; max-width: 600px; margin: 0 auto;">Connect with our dynamic channels or send us an inquiry directly. We'd love to hear from you!</p>
+        </section>
+
+        <section class="container" id="connect" style="padding-top: 40px; padding-bottom: 40px;">
+            <h2 class="section-title">Connect Channels</h2>
+            <p class="section-subtitle">Click to Join us</p>
+            <div class="portal-wrapper">
+                <main id="preview-links-container" class="links-structural-queue">
+                </main>
+            </div>
+        </section>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="mobile-nav-content">
+            <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close Navigation">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mobile-logo">
+                <img src="./Images/M.png" alt="Meet Mosaic Logo" class="logo-img">
+                <span class="logo-text">Meet Mosaic</span>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="#home" class="mobile-nav-item active" id="mobile-nav-home">Home</a>
+                <a href="#events" class="mobile-nav-item" id="mobile-nav-events">Events</a>
+                <a href="#about" class="mobile-nav-item" id="mobile-nav-about">About</a>
+                <a href="#contact-us" class="mobile-nav-item" id="mobile-nav-contact-us">Contact Us</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-logo-title">Meet Mosaic</div>
+        <div class="footer-tagline">Many Stories. One Mosaic.</div>
+        <p class="footer-copyright">&copy; 2026 Meet Mosaic. All Rights Reserved.</p>
+    </footer>
+
+    <!-- RSVP Booking Modal -->
+    <div class="modal-overlay" id="rsvp-modal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" id="rsvp-modal-close" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div id="rsvp-form-view">
+                <h3 class="modal-title" id="rsvp-title">Book Tickets</h3>
+                <p class="modal-subtitle" id="rsvp-event-info" style="color: var(--primary); font-weight: 600; margin-bottom: 24px; font-size: 14px; text-align: left;"></p>
+                
+                <form id="rsvp-form">
+                    <input type="hidden" id="rsvp-event-id-input">
+                    <input type="hidden" id="rsvp-event-name-input">
+                    
+                    <div class="form-group">
+                        <label for="rsvp-name">Your Full Name</label>
+                        <input type="text" id="rsvp-name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rsvp-email">Email Address</label>
+                        <input type="email" id="rsvp-email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rsvp-phone">Phone Number</label>
+                        <input type="tel" id="rsvp-phone" class="form-control" placeholder="9426961627" required>
+                    </div>
+
+                    <div class="rsvp-price-summary" style="background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px dashed var(--border-color); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 14px; color: var(--text-muted);">Amount Payable at Venue</span>
+                        <strong style="color: var(--highlight); font-size: 18px;" id="rsvp-payable-amount">349/- Rs.</strong>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 14px; border: none; outline: none;"><i class="fa-solid fa-circle-check"></i> Complete Ticket Booking</button>
+                </form>
+            </div>
+
+            <div id="rsvp-success-view" style="display: none; text-align: center; padding: 20px 0;">
+                <div style="font-size: 48px; color: #25D366; margin-bottom: 16px;"><i class="fa-solid fa-circle-check"></i></div>
+                <h4 style="font-size: 22px; margin-bottom: 8px;">Ticket Confirmed!</h4>
+                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Your booking has been saved. Please show this ticket confirmation at the venue entrance.</p>
+                
+                <div class="ticket-box" style="background: #ffffff; color: #1e293b; padding: 24px; border-radius: var(--radius-md); max-width: 300px; margin: 0 auto 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 1px solid #e2e8f0;">
+                    <div style="font-weight: 700; font-size: 16px; border-bottom: 2px dashed #cbd5e1; padding-bottom: 12px; margin-bottom: 16px; color: #0f172a; text-transform: uppercase; letter-spacing: 0.05em;">Meet Mosaic Entry Pass</div>
+                    <div style="font-size: 13px; text-align: left; margin-bottom: 8px; color: #334155;"><strong style="color: #64748b;">Event:</strong> <span id="ticket-event-name" style="color: #0f172a; font-weight: 600;"></span></div>
+                    <div style="font-size: 13px; text-align: left; margin-bottom: 8px; color: #334155;"><strong style="color: #64748b;">Attendee:</strong> <span id="ticket-attendee" style="color: #0f172a; font-weight: 600;"></span></div>
+                    <div style="font-size: 13px; text-align: left; margin-bottom: 16px; color: #334155;"><strong style="color: #64748b;">Reference:</strong> <code id="ticket-ref" style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-family: monospace; color: #0f172a;"></code></div>
+                    <div style="background: #f8fafc; padding: 12px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0; margin-bottom: 12px;">
+                        <canvas id="ticket-qr" style="margin: 0 auto; display: block; max-width: 150px; max-height: 150px;"></canvas>
+                    </div>
+                    <div style="font-size: 11px; color: #64748b; font-style: italic;">Show QR code on entry</div>
+                </div>
+                
+                <button class="btn btn-secondary" id="rsvp-success-close" style="width: 100%; justify-content: center;">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>

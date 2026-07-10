@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helpers
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+
+    // Validation for Review
+    function isValidReview(data) {
+      return data.keys().hasAll(['authorName', 'authorRole', 'email', 'mobile', 'bodyText', 'createdAt'])
+        && data.keys().size() == 6
+        && data.authorName is string && data.authorName.size() >= 2 && data.authorName.size() <= 100
+        && data.authorRole is string && data.authorRole.size() >= 2 && data.authorRole.size() <= 100
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 100
+        && data.mobile is string && data.mobile.size() >= 5 && data.mobile.size() <= 20
+        && data.bodyText is string && data.bodyText.size() >= 10 && data.bodyText.size() <= 1000
+        && data.createdAt is string && data.createdAt.size() <= 50;
+    }
+
+    // Validation for Inquiry
+    function isValidInquiry(data) {
+      return data.keys().hasAll(['name', 'email', 'phone', 'eventType', 'message', 'createdAt'])
+        && data.keys().size() == 6
+        && data.name is string && data.name.size() >= 2 && data.name.size() <= 100
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 100
+        && data.phone is string && data.phone.size() >= 5 && data.phone.size() <= 20
+        && data.eventType is string && data.eventType.size() >= 2 && data.eventType.size() <= 50
+        && data.message is string && data.message.size() >= 10 && data.message.size() <= 2000
+        && data.createdAt is string && data.createdAt.size() <= 50;
+    }
+
+    // Validation for EventRegistration
+    function isValidEventRegistration(data) {
+      return data.keys().hasAll(['bookingId', 'eventId', 'eventName', 'name', 'email', 'phone', 'status', 'createdAt'])
+        && data.keys().size() == 8
+        && data.bookingId is string && data.bookingId.size() >= 5 && data.bookingId.size() <= 100
+        && data.eventId is string && data.eventId.size() >= 2 && data.eventId.size() <= 50
+        && data.eventName is string && data.eventName.size() >= 2 && data.eventName.size() <= 100
+        && data.name is string && data.name.size() >= 2 && data.name.size() <= 100
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 100
+        && data.phone is string && data.phone.size() >= 5 && data.phone.size() <= 20
+        && data.status is string && (data.status == 'confirmed' || data.status == 'pending' || data.status == 'cancelled')
+        && data.createdAt is string && data.createdAt.size() <= 50;
+    }
+
+    // Match rules for reviews collection
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if isValidId(reviewId) && isValidReview(incoming());
+      allow update, delete: if false;
+    }
+
+    // Match rules for inquiries collection
+    match /inquiries/{inquiryId} {
+      allow read: if false;
+      allow create: if isValidId(inquiryId) && isValidInquiry(incoming());
+      allow update, delete: if false;
+    }
+
+    // Match rules for event_registrations collection
+    match /event_registrations/{registrationId} {
+      allow read: if true;
+      allow create: if isValidId(registrationId) && isValidEventRegistration(incoming());
+      allow update, delete: if false;
+    }
+  }
+}
