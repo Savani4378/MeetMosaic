@@ -225,68 +225,6 @@ if (mobileNavToggle && mobileNavOverlay && mobileNavClose) {
 }
 
 // =====================================================
-// FIREBASE REAL-TIME DATABASE & FORM INTEGRATIONS
-// =====================================================
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { 
-    getFirestore, 
-    doc, 
-    setDoc, 
-    getDoc
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDg8x_jv6vQd1upt-ctB5S9a2x6c-Z6azM",
-    authDomain: "summer-pattern-qcf5x.firebaseapp.com",
-    projectId: "summer-pattern-qcf5x",
-    storageBucket: "summer-pattern-qcf5x.firebasestorage.app",
-    messagingSenderId: "374954115753",
-    appId: "1:374954115753:web:ba8985e6654526168b1fb8"
-};
-
-// Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-
-// Initialize Firestore with custom databaseId
-const db = getFirestore(firebaseApp, "ai-studio-meetmosaic-bfde5964-745a-4284-87c4-833287694d7e");
-
-// JSON Error Handler as mandated by SKILL.md
-function handleFirestoreError(error, operationType, path) {
-    const errInfo = {
-        error: error instanceof Error ? error.message : String(error),
-        authInfo: {
-            userId: null,
-            email: null,
-            emailVerified: null,
-            isAnonymous: null,
-            tenantId: null,
-            providerInfo: []
-        },
-        operationType,
-        path
-    };
-    console.error('Firestore Error: ', JSON.stringify(errInfo));
-    throw new Error(JSON.stringify(errInfo));
-}
-
-// Test connection to Firestore on boot as required by SKILL.md
-async function testFirestoreConnection() {
-    try {
-        const testDocRef = doc(db, 'test', 'connection');
-        await getDoc(testDocRef);
-        console.log("Firebase Connection Verified Successfully.");
-    } catch (error) {
-        if (error && error.message && error.message.includes('offline')) {
-            console.error("Please check your Firebase configuration. Client appears to be offline.");
-        } else {
-            console.warn("Firestore connection check produced status:", error.message || error);
-        }
-    }
-}
-testFirestoreConnection();
-
-// =====================================================
 // WHATSAPP REDIRECTION LOGIC FOR EVENT TICKETS
 // =====================================================
 // Attach click listeners to all RSVP Book buttons to redirect to WhatsApp with prefilled details
